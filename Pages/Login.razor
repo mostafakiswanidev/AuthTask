@@ -1,0 +1,30 @@
+﻿@page "/"
+@* NOTE: client-side MainLayout.razor *@
+@inherits LayoutComponentBase
+
+@* NOTE: BEGIN NEW CODE *@
+@inject NavigationManager Nav
+
+
+<h3>Login</h3>
+
+<div class="mb-3">
+    <label for="loginUsername" class="form-label">Username</label>
+    <input type="Username" class="form-control" id="loginUsername" placeholder="John Kend" autocomplete="off" required @bind-value="user" />
+</div>
+<div class="mb-3">
+    <label for="loginPassword" class="form-label">Password</label>
+    <input type="password" class="form-control" id="loginPassword" placeholder="****" required @bind-value="password" />
+</div>
+<div class="mb-3">
+    <button type="button" class="btn btn-primary" @onclick="Signin">Login</button>
+</div>
+
+@code {
+    private string? user, password;
+
+    private void Signin()
+    {
+        Nav.NavigateTo("/index");
+    }
+}
